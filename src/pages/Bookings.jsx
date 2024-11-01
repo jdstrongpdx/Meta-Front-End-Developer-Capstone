@@ -96,6 +96,7 @@ const Bookings = () => {
                     <BookingForm3
                         formValues={formValues}
                         onPrevious={goToPreviousPage}
+                        handleSubmit={handleSubmit}
                     />
                 )}
             </form>

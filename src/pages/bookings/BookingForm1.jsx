@@ -89,7 +89,7 @@ const BookingForm1 = ({ formValues, onChange: handleChange, availableTimes, onNe
             </div>
 
             <button className="rounded-button" onClick={onNext}>
-                Next
+                Lets go
             </button>
 
         </>

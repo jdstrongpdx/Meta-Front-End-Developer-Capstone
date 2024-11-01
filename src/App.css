@@ -16,6 +16,7 @@
   max-width: 1200px;
   font-family: "Karla", sans-serif;
   font-size: 18pt;
+  color: var(--secondary-grey);
 }
 
 main {
@@ -35,6 +36,7 @@ h1 {
   font-family: "Markazi Text", serif;
   color: var(--primary-yellow);
   font-size: 64pt;
+  font-weight: 500;
   margin-top: 0 !important;
   padding-top: 0 !important;
   margin-bottom: 0 !important;
@@ -44,7 +46,7 @@ h1 {
 h2 {
   font-family: "Markazi Text", serif;
   font-size: 40pt;
-  color: var(--secondary-grey);
+  font-weight: 500;
   margin-top: 0 !important;
   padding-top: 0 !important;
   margin-bottom: 0 !important;
@@ -53,7 +55,6 @@ h2 {
 
 h3 {
   font-size: 20pt;
-  color: var(--secondary-grey);
 }
 
 header {
