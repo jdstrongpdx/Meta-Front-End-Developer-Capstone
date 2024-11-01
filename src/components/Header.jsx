@@ -11,9 +11,12 @@ const Header = () => {
     return (
         <>
             <header>
-                <NavBar />
+                <NavBar/>
                 <img src="/images/Logo.svg" alt="Little Lemon Logo"/>
-                <img src="/images/home%20icon.svg" alt="Home Page Icon"/>
+
+                <a href="/" target="_blank" rel="noopener noreferrer">
+                    <img src="/images/home%20icon.svg" alt="Home Page Icon" style={{cursor: 'pointer'}}/>
+                </a>
             </header>
         </>
     )

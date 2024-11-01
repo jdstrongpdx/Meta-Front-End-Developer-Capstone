@@ -7,23 +7,13 @@
   --secondary-black: #333333;
 }
 
-h1 {
-  font-family: "Markazi Text", serif;
-  color: var(--primary-yellow);
-  font-size: 64pt;
-}
-h1 {
-  font-family: "Markazi Text", serif;
-  font-size: 40pt;
-  color: var(--secondary-grey);
-}
+
 
 .App {
   width: 80%;
   margin-right: auto;
   margin-left: auto;
   max-width: 1200px;
-  padding: 1%;
   font-family: "Karla", sans-serif;
   font-size: 18pt;
 }
@@ -31,7 +21,39 @@ h1 {
 main {
   background-color: var(--primary-green);
   margin: 1%;
-  padding: 5px 20px 5px 20px;
+  padding: 3%;
+}
+
+footer {
+  align-items: center;
+  text-align: center;
+  margin: 1%;
+  padding: 1%;
+}
+
+h1 {
+  font-family: "Markazi Text", serif;
+  color: var(--primary-yellow);
+  font-size: 64pt;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+h2 {
+  font-family: "Markazi Text", serif;
+  font-size: 40pt;
+  color: var(--secondary-grey);
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+h3 {
+  font-size: 20pt;
+  color: var(--secondary-grey);
 }
 
 header {
@@ -40,6 +62,70 @@ header {
   align-items: center;
   margin: 1%;
   padding: 1%;
+}
+
+.form {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  font-weight: bold;
+  color: var(--secondary-grey)
+}
+
+input,
+select {
+  width: 95%;
+  padding: 10px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+input:focus,
+select:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+select {
+  appearance: none;
+  background-color: white;
+  background-image: url('data:image/png;base64,...');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+button:hover {
+  background-color: #2980b9; /* Darker blue on hover */
 }
 
 .navbar {
@@ -72,3 +158,53 @@ header {
   background-color: #555;
 }
 
+.doubleImg {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 3%;
+}
+
+.doubleImg img {
+  width: 48%;
+  height: auto;
+}
+
+.radio-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.radio-label {
+  display: flex;
+  justify-content: space-between;
+}
+
+.square-button {
+  display: inline-block;
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+
+.rounded-button {
+  display: inline-block;
+  background-color: var(--primary-yellow);
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 4px 2px;
+  cursor: pointer;
+  border: none;
+  border-radius: 15px;
+}

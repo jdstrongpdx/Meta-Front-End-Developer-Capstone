@@ -1,8 +1,6 @@
 const Footer = () => {
     return (
-        <>
-            <footer>Footer Text</footer>
-        </>
+            <footer>  &copy; {new Date().getFullYear()} Little Lemon </footer>
     )
 }
 
