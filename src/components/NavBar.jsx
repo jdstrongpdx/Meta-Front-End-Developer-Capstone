@@ -1,9 +1,31 @@
+import {useState} from "react";
+
 const NavBar = () => {
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+    const toggleNav = () => {
+        setIsDropdownOpen(!isDropdownOpen);
+    };
+
     return (
-        <>
-            <nav>NavBar Text</nav>
-        </>
-    )
-}
+        <nav className="navbar">
+            <img
+                src="/images/hamburger.svg"
+                alt="hamburger icon"
+                className="hamburger"
+                onClick={toggleNav}
+            />
+
+            {isDropdownOpen && (
+                <div className="nav-menu">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#services">Services</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            )}
+        </nav>
+    );
+};
 
 export default NavBar;
