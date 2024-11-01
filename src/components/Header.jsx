@@ -10,7 +10,7 @@ const Header = () => {
 
     return (
         <>
-            <header className="header">
+            <header>
                 <NavBar />
                 <img src="/images/Logo.svg" alt="Little Lemon Logo"/>
                 <img src="/images/home%20icon.svg" alt="Home Page Icon"/>

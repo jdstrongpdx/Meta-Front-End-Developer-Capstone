@@ -1,16 +1,45 @@
+:root {
+  --primary-green: #495E57;
+  --primary-yellow: #F4CE14;
+  --secondary-orange: #EE9972;
+  --secondary-creamsicle: #FBDABB;
+  --secondary-grey: #EDEFFE;
+  --secondary-black: #333333;
+}
+
+h1 {
+  font-family: "Markazi Text", serif;
+  color: var(--primary-yellow);
+  font-size: 64pt;
+}
+h1 {
+  font-family: "Markazi Text", serif;
+  font-size: 40pt;
+  color: var(--secondary-grey);
+}
+
 .App {
   width: 80%;
   margin-right: auto;
   margin-left: auto;
   max-width: 1200px;
   padding: 1%;
-  text-align: center;
+  font-family: "Karla", sans-serif;
+  font-size: 18pt;
 }
 
-.header {
+main {
+  background-color: var(--primary-green);
+  margin: 1%;
+  padding: 5px 20px 5px 20px;
+}
+
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 1%;
+  padding: 1%;
 }
 
 .navbar {
@@ -28,7 +57,7 @@
   top: 40px;
   left: 0;
   background-color: #333;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
@@ -42,3 +71,4 @@
 .nav-menu a:hover {
   background-color: #555;
 }
+

@@ -1,7 +1,10 @@
 const MainPage = () => {
     return (
         <>
-            <main>Main Text</main>
+            <main>
+                <h1>Main Page</h1>
+            </main>
+
         </>
     )
 }
