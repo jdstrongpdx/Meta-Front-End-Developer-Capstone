@@ -2,10 +2,10 @@ const BookingForm1 = ({ formValues, onChange: handleChange, availableTimes, onNe
     return (
         <>
             <h3>Find a table for any occasion</h3>
-            <container className="doubleImg">
-                <img src="/images/restaurant.jpg" alt="Resturant"/>
-                <img src="/images/restaurant%20chef%20B.jpg" alt="Resturant Chef"/>
-            </container>
+            <div className="doubleImg" role="img" aria-label="Restaurant and Restaurant Chef">
+                <img src="/images/restaurant.jpg" alt="Restaurant"/>
+                <img src="/images/restaurant%20chef%20B.jpg" alt="Restaurant Chef"/>
+            </div>
 
             <label htmlFor="res-date">Choose a Date*</label>
             <input
@@ -15,7 +15,8 @@ const BookingForm1 = ({ formValues, onChange: handleChange, availableTimes, onNe
                 value={formValues.date}
                 onChange={handleChange}
                 required
-                style={{border: errors.date ? '2px solid red' : ''}}
+                aria-invalid={!!errors.date} // Indicates an error state
+                style={{ border: errors.date ? '2px solid red' : '' }}
             />
 
             <label htmlFor="res-time">Choose a Time*</label>
@@ -25,7 +26,8 @@ const BookingForm1 = ({ formValues, onChange: handleChange, availableTimes, onNe
                 value={formValues.time}
                 onChange={handleChange}
                 required
-                style={{border: errors.time ? '2px solid red' : ''}}
+                aria-invalid={!!errors.time} // Indicates an error state
+                style={{ border: errors.time ? '2px solid red' : '' }}
             >
                 <option value="" disabled>Select Time</option>
                 {availableTimes.map((time) => (
@@ -40,20 +42,23 @@ const BookingForm1 = ({ formValues, onChange: handleChange, availableTimes, onNe
                 value={formValues.guests}
                 onChange={handleChange}
                 required
-                style={{border: errors.guests ? '2px solid red' : ''}}
+                aria-invalid={!!errors.guests} // Indicates an error state
+                style={{ border: errors.guests ? '2px solid red' : '' }}
             >
                 <option value="" disabled>Select Number of Diners</option>
                 {[...Array(10)].map((_, i) => (
                     <option key={i + 1} value={i + 1}>{i + 1}</option>
                 ))}
             </select>
+
             <label htmlFor="occasion">Occasion</label>
             <select
                 id="occasion"
                 name="occasion"
                 value={formValues.occasion}
                 onChange={handleChange}
-                style={{border: errors.occasion ? '2px solid red' : ''}}
+                aria-invalid={!!errors.occasion} // Indicates an error state
+                style={{ border: errors.occasion ? '2px solid red' : '' }}
             >
                 <option value="">Select Occasion</option>
                 <option>Birthday</option>
@@ -62,26 +67,30 @@ const BookingForm1 = ({ formValues, onChange: handleChange, availableTimes, onNe
                 <option>Other</option>
             </select>
 
-            <div style={{display: 'flex', justifyContent: 'left', alignItems: 'center'}}>
-                <label className="radio-label">
+            <div style={{ display: 'flex', justifyContent: 'left', alignItems: 'center' }}>
+                <label className="radio-label" htmlFor="indoor-seating">
                     Indoor
                 </label>
                 <input
                     type="radio"
+                    id="indoor-seating" // Add ID for the radio input
                     name="seating"
                     value="indoor"
                     checked={formValues.seating === "indoor"}
                     onChange={handleChange}
+                    aria-labelledby="indoor-seating"
                 />
-                <label className="radio-label">
+                <label className="radio-label" htmlFor="outdoor-seating">
                     Outdoor
                 </label>
                 <input
                     type="radio"
+                    id="outdoor-seating" // Add ID for the radio input
                     name="seating"
                     value="outdoor"
                     checked={formValues.seating === "outdoor"}
                     onChange={handleChange}
+                    aria-labelledby="outdoor-seating"
                 />
             </div>
 
@@ -92,9 +101,8 @@ const BookingForm1 = ({ formValues, onChange: handleChange, availableTimes, onNe
             >
                 Lets go
             </button>
-
         </>
-    )
+    );
 }
 
-export default BookingForm1
+export default BookingForm1;
