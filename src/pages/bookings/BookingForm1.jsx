@@ -55,14 +55,14 @@ const BookingForm1 = ({ formValues, onChange: handleChange, availableTimes, onNe
                 onChange={handleChange}
                 style={{border: errors.occasion ? '2px solid red' : ''}}
             >
-                <option value="" disabled>Select Occasion</option>
+                <option value="">Select Occasion</option>
                 <option>Birthday</option>
                 <option>Anniversary</option>
                 <option>Engagement</option>
                 <option>Other</option>
             </select>
 
-            <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+            <div style={{display: 'flex', justifyContent: 'left', alignItems: 'center'}}>
                 <label className="radio-label">
                     Indoor
                 </label>
@@ -73,9 +73,6 @@ const BookingForm1 = ({ formValues, onChange: handleChange, availableTimes, onNe
                     checked={formValues.seating === "indoor"}
                     onChange={handleChange}
                 />
-            </div>
-
-            <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
                 <label className="radio-label">
                     Outdoor
                 </label>
@@ -88,7 +85,11 @@ const BookingForm1 = ({ formValues, onChange: handleChange, availableTimes, onNe
                 />
             </div>
 
-            <button className="rounded-button" onClick={onNext}>
+            <button
+                className="rounded-button"
+                onClick={onNext}
+                aria-label="Continue to next page"
+            >
                 Lets go
             </button>
 

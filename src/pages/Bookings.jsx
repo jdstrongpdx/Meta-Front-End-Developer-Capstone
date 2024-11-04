@@ -18,13 +18,16 @@ const initialValues = {
     request: "",
 };
 
-const Bookings = () => {
+const Bookings = ({ availableTimes, updateTimes }) => {
     const [formValues, setFormValues] = useState(initialValues);
     const [page, setPage] = useState(1);
     const [errors, setErrors] = useState({});
-    const [availableTimes] = useState(
-        ["16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"],
-    );
+
+    const handleDateChange = (event) => {
+        const selectedDate = event.target.value;
+        updateTimes(selectedDate);
+    };
+
 
     const goToNextPage = () => {
         const newErrors = {};
@@ -33,8 +36,9 @@ const Bookings = () => {
             if (!formValues.time) newErrors.time = "Time is required";
             if (!formValues.guests) newErrors.guests = "Number of Guests is required";
         } else if (page === 2) {
-            if (!formValues.guests) newErrors.guests = "Number of guests is required";
-            if (!formValues.occasion) newErrors.occasion = "Occasion is required";
+            if (!formValues.firstName) newErrors.firstName = "First Name is required";
+            if (!formValues.lastName) newErrors.lastName = "Last Name is required";
+            if (!formValues.phoneNumber) newErrors.phoneNumber = "Phone Number is required";
         }
 
         if (Object.keys(newErrors).length > 0) {
@@ -61,12 +65,9 @@ const Bookings = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (!formValues.date || !formValues.time || !formValues.guests || !formValues.occasion) {
-            alert("Please fill in all required fields.");
-            return;
-        }
         console.log(formValues);
-        // Submit the form data to your backend or API
+        alert("Thank you for booking your table!  We look forward to serving you soon.")
+        window.location.reload();
     };
 
     return (
@@ -85,7 +86,6 @@ const Bookings = () => {
                 {page === 2 && (
                     <BookingForm2
                         formValues={formValues}
-                        availableTimes={availableTimes}
                         onChange={handleChange}
                         onNext={goToNextPage}
                         onPrevious={goToPreviousPage}

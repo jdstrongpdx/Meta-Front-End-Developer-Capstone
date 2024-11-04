@@ -17,12 +17,12 @@ const NavBar = () => {
             />
 
             {isDropdownOpen && (
-                <div className="nav-menu">
+                <nav className="nav-menu">
                     <a href="/home">Home</a>
                     <a href="/about">About</a>
                     <a href="/bookings">Reservations</a>
                     <a href="/contact">Contact</a>
-                </div>
+                </nav>
             )}
         </nav>
     );

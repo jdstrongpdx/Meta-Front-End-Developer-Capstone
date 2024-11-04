@@ -30,12 +30,13 @@ footer {
   text-align: center;
   margin: 1%;
   padding: 1%;
+  color: var(--primary-green);
 }
 
 h1 {
   font-family: "Markazi Text", serif;
   color: var(--primary-yellow);
-  font-size: 64pt;
+  font-size: 54pt;
   font-weight: 500;
   margin-top: 0 !important;
   padding-top: 0 !important;

@@ -9,7 +9,7 @@ import Bookings from "./pages/Bookings";
 
 function App() {
     return (
-        <div className="App">
+        <container className="App">
             <Header/>
             <Router>
                 <Routes>
@@ -19,7 +19,7 @@ function App() {
                 </Routes>
             </Router>
             <Footer/>
-        </div>
+        </container>
     );
 }
 
