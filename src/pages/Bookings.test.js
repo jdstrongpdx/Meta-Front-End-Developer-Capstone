@@ -1,7 +1,7 @@
 // Bookings.test.js
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import Bookings from "./Bookings"; // Adjust the import path as needed
+import Bookings from "./Bookings";
 
 // Mock the child components
 jest.mock("./bookings/BookingForm1", () => {

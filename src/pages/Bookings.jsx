@@ -1,8 +1,9 @@
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import BookingForm1 from "./bookings/BookingForm1";
 import BookingForm2 from "./bookings/BookingForm2";
 import BookingForm3 from "./bookings/BookingForm3";
 import BookingHeader from "./bookings/BookingHeader";
+import {submitAPI} from "../api";
 
 const initialValues = {
     time: "",
@@ -23,11 +24,16 @@ const Bookings = ({ availableTimes, updateTimes }) => {
     const [page, setPage] = useState(1);
     const [errors, setErrors] = useState({});
 
-    const handleDateChange = (event) => {
-        const selectedDate = event.target.value;
-        updateTimes(selectedDate);
-    };
 
+    useEffect(() => {
+        const handleDateChange = () => {
+            if (formValues.date) {
+                const date = new Date(formValues.date);
+                updateTimes(date);
+            }
+        };
+        handleDateChange();
+    }, [formValues.date]);
 
     const goToNextPage = () => {
         const newErrors = {};
@@ -65,9 +71,14 @@ const Bookings = ({ availableTimes, updateTimes }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formValues);
-        alert("Thank you for booking your table!  We look forward to serving you soon.")
-        window.location.reload();
+        const res = submitAPI(formValues)
+        if (res === true) {
+            alert("Thank you for booking your table!  We look forward to serving you soon.")
+            window.location.reload();
+        } else {
+            alert("There was an error processing your request.")
+        }
+
     };
 
     return (

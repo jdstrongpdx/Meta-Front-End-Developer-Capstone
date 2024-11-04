@@ -1,17 +1,17 @@
 import RoundedButton from "../buttons/RoundedButton";
-import {useReducer} from "react";
+import {useEffect, useReducer} from "react";
 import Bookings from "./Bookings";
+import {fetchAPI} from "../api"
 
-
-const initialTimes = ["16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
+const initialTimes = [];
 
 // REDUCER FUNCTION FOR AVAILABLE TIMES
 const timesReducer = (state, action) => {
     switch (action.type) {
         case 'UPDATE_TIMES':
-            return action.payload; // Update available times based on action payload
+            return action.payload;
         case 'INITIALIZE_TIMES':
-            return initialTimes; // Initialize available times
+            return initialTimes;
         default:
             return state;
     }
@@ -20,14 +20,20 @@ const timesReducer = (state, action) => {
 const MainPage = () => {
     const [availableTimes, dispatch] = useReducer(timesReducer, initialTimes);
 
-    const updateTimes = (selectedDate) => {
-        dispatch({ type: 'UPDATE_TIMES', payload: availableTimes });
+    const updateTimes = (date) => {
+        const times = fetchAPI(date);
+        dispatch({ type: 'UPDATE_TIMES', payload: times });
     };
 
     const initializeTimes = () => {
-        dispatch({ type: 'INITIALIZE_TIMES' });
+        const initialDate = new Date();
+        const times = fetchAPI(initialDate);
+        dispatch({ type: 'INITIALIZE_TIMES', payload: times });
     };
 
+    useEffect(() => {
+        initializeTimes();
+    }, []);
 
     return (
         <main>
@@ -38,7 +44,6 @@ const MainPage = () => {
             <Bookings
                 availableTimes={availableTimes}
                 updateTimes={updateTimes}
-                initializeTimes={initializeTimes}
             />
         </main>
     );
