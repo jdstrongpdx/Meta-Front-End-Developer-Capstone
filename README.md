@@ -1,4 +1,6 @@
 # Little Lemon Mobile Table Reservation App
+
+## Project Description
 This repository was built to meet the requirements of the Capstone project of Metas Front-End Professional Developer Certification.  The designs implemented are a direct reflection of the assignments directions and not the best design choices for the App as a whole.
 
 ## Design Process
@@ -9,6 +11,12 @@ This repository was built to meet the requirements of the Capstone project of Me
 - Developed a functional Prototype in Figma.
 - Implemented the App using React following the UI/UX design and Style Guide
 
+## Mobile Table Reservation Features
+- Simulates fetching available reservation times from an API
+- Stores reservation times using state and useReducer
+- Uses hooks to update reservation times on reservation date change
+- Uses Params to break form into three components for easier user interactions
+- Unit and Integration Testing files for the checking state functions, rendering, and form elements
 
 ## REPOSITORY REPRESENTS THIS IMPLEMENTATION
 ## Mobile Table Reservation Implementation
