@@ -1,4 +1,4 @@
-const BookingForm3 = ({formValues, handleSubmit}) => {
+const BookingForm3 = ({formValues, handleSubmit, onPrevious}) => {
     return (
         <>
             <h3>Reservation Confirmation</h3>
@@ -15,13 +15,23 @@ const BookingForm3 = ({formValues, handleSubmit}) => {
             <p><strong>Phone Number: </strong>{formValues.phoneNumber}</p>
             <p><strong>Email: </strong>{formValues.email ? formValues.email : "None"}</p>
 
-            <button
-                className="rounded-button"
-                onClick={handleSubmit}
-                aria-label="Reserve a table at the restaurant"
-            >
-                Reserve Table
-            </button>
+            <div style={{display: "flex", justifyContent: "space-between", marginTop: "20px"}}>
+                <button
+                    className="rounded-button"
+                    onClick={onPrevious}
+                    aria-label="Back to Previous Page"
+                >
+                    Previous Page
+                </button>
+
+                <button
+                    className="rounded-button"
+                    onClick={handleSubmit}
+                    aria-label="Reserve a table at the restaurant"
+                >
+                    Reserve Table
+                </button>
+            </div>
         </>
     )
 }

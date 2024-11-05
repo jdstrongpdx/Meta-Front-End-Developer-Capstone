@@ -1,3 +1,9 @@
+/*
+Source: <script src="https://raw.githubusercontent.com/courseraap/capstone/main/api.js"></script>
+Assignment called for linking these functions via script in the head of index.html, but it was blocked due to
+CORS protections. Copied the functions from the file for insertation and use here.
+*/
+
 const seededRandom = function (seed) {
     var m = 2**35 - 31;
     var a = 185852;

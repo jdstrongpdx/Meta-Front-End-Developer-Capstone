@@ -1,45 +1,41 @@
-import {useEffect, useReducer} from "react";
+import { useEffect, useReducer } from "react";
 import Bookings from "./Bookings";
-import {fetchAPI} from "../api"
+import { fetchAPI } from "../api"
 
-const initialTimes = [];
+const INITIAL_TIMES = [];
+const UPDATE_TIMES = 'UPDATE_TIMES';
+const INITIALIZE_TIMES = 'INITIALIZE_TIMES';
 
-// REDUCER FUNCTION FOR AVAILABLE TIMES
+// REDUCER FOR AVAILABLE TIMES
 const timesReducer = (state, action) => {
     switch (action.type) {
-        case 'UPDATE_TIMES':
+        case UPDATE_TIMES:
             return action.payload;
-        case 'INITIALIZE_TIMES':
-            return initialTimes;
+        case INITIALIZE_TIMES:
+            return INITIAL_TIMES;
         default:
             return state;
     }
 };
 
 const MainPage = () => {
-    const [availableTimes, dispatch] = useReducer(timesReducer, initialTimes);
+    const [availableTimes, dispatch] = useReducer(timesReducer, INITIAL_TIMES);
 
-    const updateTimes = (date) => {
+    // USES DATE AND fetchAPI FUNCTION TO SET THE timesReducer STATE
+    const fetchAndUpdateTimes = (date, type) => {
         const times = fetchAPI(date);
-        dispatch({ type: 'UPDATE_TIMES', payload: times });
+        dispatch({ type, payload: times });
     };
 
-    const initializeTimes = () => {
-        const initialDate = new Date();
-        const times = fetchAPI(initialDate);
-        dispatch({ type: 'INITIALIZE_TIMES', payload: times });
-    };
+    const updateTimes = (date) => fetchAndUpdateTimes(date, UPDATE_TIMES);
 
-    useEffect(() => {
-        initializeTimes();
-    }, []);
+    const initializeTimes = () => fetchAndUpdateTimes(new Date(), INITIALIZE_TIMES);
 
+    useEffect(initializeTimes, []);
+
+    // HARDCODED BOOKINGS ENTRY PASSING TIMES AND timesReducer STATE UPDATE FUNCTION
     return (
         <main>
-{/*            <h2>Welcome to </h2>
-            <h1>Little Lemon</h1>
-            <h2>Chicago</h2>
-            <RoundedButton linkHref="/bookings" title="Reserve a Table"/>*/}
             <Bookings
                 availableTimes={availableTimes}
                 updateTimes={updateTimes}

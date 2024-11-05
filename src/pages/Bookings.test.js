@@ -3,7 +3,7 @@ import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import Bookings from "./Bookings";
 
-// Mock the child components
+// MOCKS THE THREE FORM PAGES AND VERIFIES THAT THEY ARE BEING RENDERED AND UPDATED CORRECTLY
 jest.mock("./bookings/BookingForm1", () => {
     return ({ formValues, onChange, onNext, errors }) => (
         <div>
